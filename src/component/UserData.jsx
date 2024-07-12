@@ -1,8 +1,6 @@
 import { useGit } from '../context/GitContext'
 const UserData = () => {
     const {user, repos} = useGit()
-    console.log(repos)
-
     return(
         
             <> {user.data &&
@@ -13,7 +11,7 @@ const UserData = () => {
                     <p>Número de repositorios públicos: {user.data.public_repos}</p>
                     <img src={user.data.avatar_url} alt="" />
                     <ul>
-                        {/*repos.map(repo => <li>{repo.name}</li>)*/}
+                        {repos.data?.map((repo, index) => <li key={index}>{repo?.name}</li>)}
                     </ul>
                 </div>
             }
@@ -24,4 +22,3 @@ const UserData = () => {
 
 export default UserData
 
-            /**/
